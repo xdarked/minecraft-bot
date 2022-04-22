@@ -1,28 +1,26 @@
 const mineflayer = require('mineflayer');
 const { once } = require('events')
-
-
 const bot = mineflayer.createBot({
   
   // login 
-  "user"      : 'psautoelectrics@btinternet.com',
-  "master"    : 'none',
-  "host"      : '0b0t.org',
-  //"port"      : '59936',
+  "user"      : 'accountemail',
+  "host"      : 'serverip',
+  "port"      : 'port',
   "version"   : '1.12.2',
-  auth:'microsoft'
+  auth:'microsoft' //for onlinemode=on servers
+
   
 })
 
 
 
-//mc chat in terminal
+//mc chat > terminal
 bot.on('chat', (username, message) => {
   var now = new Date();
   console.log(now.toUTCString(), '|||||', username, ':',message)
 })
 
-
+//terminal > mc chat
 bot.once("spawn", async () => {
   rl.on("line", async (line) => {
       bot.chat(line)
@@ -40,17 +38,12 @@ let rl = readline.createInterface({
 bot.on('kicked', console.log)
 bot.on('error', console.log)
 
-//test command
+//say "t" every 10 seconds 
 setInterval(() => {bot.chat("t")},1000 * 1 * 8)
 
 // tpa commands  
 bot.on('messagestr', (message) => {
-  if (message.includes('xdarked wants to teleport to you.')) {
-    bot.chat('/tpy xdarked')
-  }
-})
-bot.on('messagestr', (message) => {
-  if (message.includes('1snipzz2 wants to teleport to you.')) {
-    bot.chat('/tpy 1snipzz2')
+  if (message.includes('$username wants to teleport to you.')) {
+    bot.chat('/tpy $username')
   }
 })
