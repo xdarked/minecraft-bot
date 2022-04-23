@@ -6,3 +6,7 @@ how to run the bot
 
 make a new folder and open a terminal in the folder you just made and type "npm init"
 then once that's done type "npm install mineflayer"
+
+put the index.js file from this repository into the folder with all the other stuff then edit it, putting in account info
+
+to start the bot type in the terminal "node index.js"
