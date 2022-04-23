@@ -38,12 +38,3 @@ let rl = readline.createInterface({
 bot.on('kicked', console.log)
 bot.on('error', console.log)
 
-//say "t" every 10 seconds 
-setInterval(() => {bot.chat("t")},1000 * 1 * 8)
-
-// tpa commands  
-bot.on('messagestr', (message) => {
-  if (message.includes('$username wants to teleport to you.')) {
-    bot.chat('/tpy $username')
-  }
-})
