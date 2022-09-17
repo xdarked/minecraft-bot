@@ -1,3 +1,11 @@
+# outdated! please use https://github.com/JPS915-xdarked/minecraft-discord-bridge
+# outdated! please use https://github.com/JPS915-xdarked/minecraft-discord-bridge
+# outdated! please use https://github.com/JPS915-xdarked/minecraft-discord-bridge
+# outdated! please use https://github.com/JPS915-xdarked/minecraft-discord-bridge
+
+
+
+
 # minecraft-bot
 i made this bot for minecraft server 0b0t
 
