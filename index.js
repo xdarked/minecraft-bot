@@ -3,10 +3,10 @@ const { once } = require('events')
 const bot = mineflayer.createBot({
   
   // login 
-  "user"      : 'account username',
-  "host"      : 'serverip',
-  "port"      : 'port',
-  "version"   : '1.12.2',
+  "user"      : 'accountusername', //username of account
+  "host"      : 'serverip', // server you want to connect to
+  "port"      : '25565', //default is 25565 for most servers, change if needed
+  "version"   : '1.12.2', //verison
   auth:'microsoft' //for onlinemode=on servers
 
   
