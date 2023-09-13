@@ -3,7 +3,7 @@ const { once } = require('events')
 const bot = mineflayer.createBot({
   
   // login 
-  "user"      : 'accountemail',
+  "user"      : 'account username',
   "host"      : 'serverip',
   "port"      : 'port',
   "version"   : '1.12.2',
@@ -17,7 +17,7 @@ const bot = mineflayer.createBot({
 //mc chat > terminal
 bot.on('chat', (username, message) => {
   var now = new Date();
-  console.log(now.toUTCString(), '|||||', username, ':',message)
+  console.log(now.toUTCString(), '|||', username, ':',message)
 })
 
 //terminal > mc chat
@@ -27,7 +27,6 @@ bot.once("spawn", async () => {
   })
 })
 const readline = require("node:readline");
-const command = require('vorpal/dist/command');// remove this line if bot crashing from require('vorpal/dist/command') error
 const { version } = require('os');
 let rl = readline.createInterface({
   input: process.stdin,
