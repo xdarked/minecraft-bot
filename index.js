@@ -1,39 +1,49 @@
-const mineflayer = require('mineflayer');
-const { once } = require('events')
-const bot = mineflayer.createBot({
-  
-  // login 
-  "user"      : 'accountusername', //username of account
-  "host"      : 'serverip', // server you want to connect to
-  "port"      : '25565', //default is 25565 for most servers, change if needed
-  "version"   : '1.12.2', //verison
-  auth:'microsoft' //for onlinemode=on servers
+const mineflayer = require('mineflayer')
 
-  
-})
+var options = {
+  host: "serverip",
+  port: 25565,
+  version: "1.12.2",
+  viewDistance: 16,
+  auth: 'microsoft', 
+  username: "username",
 
+};
+let spamprot
+setInterval(() => { spamprot = Math.floor(Math.random() * 1000000) }, 500);
 
+function startBot() {
+  const bot = mineflayer.createBot(options)
 
-//mc chat > terminal
-bot.on('chat', (username, message) => {
-  var now = new Date();
-  console.log(now.toUTCString(), '|||', username, ':',message)
-})
-
-//terminal > mc chat
-bot.once("spawn", async () => {
-  rl.on("line", async (line) => {
+  //console to minecraft chat
+  bot.once("spawn", async () => {
+    rl.on("line", async (line) => {
       bot.chat(line)
+    })
   })
-})
-const readline = require("node:readline");
-const { version } = require('os');
-let rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+  const readline = require("node:readline");
+  let rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-// Log errors and kick reasons
-bot.on('kicked', console.log)
-bot.on('error', console.log)
 
+  //minecraft chat to console
+  bot.on('message', (message) => {
+    console.log(message.toAnsi())
+  })
+
+
+  bot.on("login", () => { console.log(`${bot.username} connected to server at ${new Date}`) });
+  bot.once("spawn", () => { console.log(`bot spawned at ${bot.entity.position}`) });
+  bot.on("end", (reason) => {
+    console.log(`Disconnected: ${reason}`)
+    setTimeout(() => { startBot() }, 20000)
+  });
+  bot.on("kicked", (reason) => { console.log(`bot kicked for: ${reason}`) });
+  bot.on("error", (err) => { console.error(`Bot error: ${err}`) });
+}
+
+setTimeout(() => {
+  startBot()
+}, 10000);
