@@ -1,7 +1,7 @@
 
 
 # minecraft-bot
-basic minecraft bot to interact with chat via terminal
+very basic minecraft bot to interact with chat via terminal
 
 
 # features
