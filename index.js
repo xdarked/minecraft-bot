@@ -9,8 +9,6 @@ var options = {
   username: "username",
 
 };
-let spamprot
-setInterval(() => { spamprot = Math.floor(Math.random() * 1000000) }, 500);
 
 function startBot() {
   const bot = mineflayer.createBot(options)
