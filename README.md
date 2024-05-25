@@ -4,4 +4,7 @@
 basic minecraft bot to interact with chat via terminal
 
 
-# bot
+# features
+minecraft > console
+console > minecraft
+auto reconnect
